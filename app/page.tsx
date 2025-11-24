@@ -74,9 +74,9 @@ export default function Home() {
       <div className="m-7 flex flex-col gap-3 items-center justify-center animate-[slideIn_2s_ease-out_forwards]">
         <h3 className="text-white text-xl sm:text-lg md:text-xl lg:text-2xl xl:text-3xl">
           <span className="text-yellow-400 text-xl sm:text-lg md:text-xl lg:text-2xl xl:text-3xl">
-            S
+            T
           </span>
-          KILLS
+          ECNOLOGIES
         </h3>
 
         <ul className="text-white flex flex-row flex-wrap gap-5 relative transform transition-transform duration-700 ease-in-out hover:-translate-y-3 animate-[slideIn_3s_ease-out_forwards]">
