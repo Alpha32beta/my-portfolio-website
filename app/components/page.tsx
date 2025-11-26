@@ -35,23 +35,23 @@ const EnhancedPortfolio = () => {
       tech: ['React', 'API Integration', 'Tailwind'],
       link: 'https://advance-weather-app-sigma.vercel.app/',
       color: 'from-blue-500 to-cyan-500',
-      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg'
+      image: '/weather.png'
     },
     {
-      title: 'E-Commerce Platform',
-      description: 'Full-stack e-commerce solution with payment integration',
-      tech: ['Next.js', 'Supabase'],
-      link: '#',
+      title: 'Currency Converter App',
+      description: 'A simple, fast currency converter with real-time rates and easy multi-currency tracking.',
+      tech: ['HTML', 'CSS', 'Javascript'],
+      link: 'https://newcurrencyconverter.vercel.app/',
       color: 'from-purple-500 to-pink-500',
-      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg'
+      image: '/currency-converter.png'
     },
     {
-      title: 'Task Management App',
-      description: 'Collaborative task manager with real-time updates',
-      tech: ['React', 'Firebase', 'Tailwind'],
-      link: '#',
+      title: 'Todo List App',
+      description: 'A clean, easy-to-use to-do app that helps you organize tasks, set priorities, and stay productive.',
+      tech: ['HTML', 'CSS', 'Javascript'],
+      link: 'https://todo-list-mu-dun-41.vercel.app/',
       color: 'from-green-500 to-emerald-500',
-      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg'
+      image: '/todo.png'
     }
   ];
 
@@ -70,9 +70,9 @@ const EnhancedPortfolio = () => {
   ];
 
   const socialLinks = [
-    { image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg', label: 'LinkedIn', url: 'https://www.linkedin.com/in/itule-godstime-9339a0339' },
+    { image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg', label: 'LinkedIn', url: 'https://www.linkedin.com/in/itule-godstime-9339a0339?utm_source=share_via&utm_content=profile&utm_medium=member_android' },
     { image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg', label: 'GitHub', url: 'https://github.com/Alpha32beta' },
-    { image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/facebook/facebook-original.svg', label: 'Facebook', url: '' },
+    { image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/facebook/facebook-original.svg', label: 'Facebook', url: 'https://www.facebook.com/share/1CsorEboLW/' },
     { image: 'https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png', label: 'Instagram', url: '' }
   ];
 
@@ -374,7 +374,7 @@ const EnhancedPortfolio = () => {
                   <img 
                     src={project.image} 
                     alt={project.title}
-                    className="w-20 h-20 sm:w-24 sm:h-24 object-contain"
+                    className="w-full h-full sm:w-full sm:h-full object-contain"
                   />
                 </div>
                 
