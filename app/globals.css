@@ -24,8 +24,7 @@
   }
 }
 
-body {
-  background-image: url('/bg.jpg'); 
+body { 
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -40,58 +39,3 @@ body {
   color:  #fbc437 ;
    text-shadow: 1px 1px 2px #B8860B, 0 0 3px;
 }
-
-@keyframes zoomIn {
-  0% {
-    transform: scale(0.8);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-@keyframes slideIn {
-  0% {
-    transform: translateY(20px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes spinSlow {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-@keyframes bounce613 {
-  40% {
-    transform: scale(1.4);
-  }
-  60% {
-    transform: scale(0.8);
-  }
-  80% {
-    transform: scale(1.2);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-.animate-bounce613 {
-  animation: bounce613 0.4s linear;
-}
-

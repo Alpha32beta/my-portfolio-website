@@ -214,7 +214,7 @@ const EnhancedPortfolio = () => {
 
             <div className="shrink-0 mt-8 lg:mt-0">
               <div className="relative">
-                <div className="w-56 h-56 sm:w-72 sm:h-72 rounded-full bg-gradient-to-br from-yellow-400 to-yellow-600 p-1">
+                <div className="w-56 h-56 sm:w-72 sm:h-72 rounded-full bg-linear-to-br from-yellow-400 to-yellow-600 p-1">
                   <div className="w-full h-full rounded-full bg-gray-900 overflow-hidden">
                     <img 
                       src="/suit-profile.jpg" 
@@ -237,7 +237,7 @@ const EnhancedPortfolio = () => {
       </section>
 
      
-      <section className="py-12 sm:py-20 px-4 sm:px-6 bg-gradient-to-b from-transparent to-gray-900/50">
+      <section className="py-12 sm:py-20 px-4 sm:px-6 bg-linear-to-b from-transparent to-gray-900/50">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12 sm:mb-16">
             <h3 className="text-3xl sm:text-4xl font-bold mb-3 sm:mb-4">
@@ -291,7 +291,7 @@ const EnhancedPortfolio = () => {
       </section>
 
       
-      <section id="skills" className="py-12 sm:py-20 px-4 sm:px-6 bg-gradient-to-b from-gray-900/50 to-transparent">
+      <section id="skills" className="py-12 sm:py-20 px-4 sm:px-6 bg-linear-to-b from-gray-900/50 to-transparent">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-3 sm:mb-4">
             My <span className="text-yellow-400">Skills</span>
@@ -345,7 +345,7 @@ const EnhancedPortfolio = () => {
               {traits.map((trait, index) => (
                 <div
                   key={index}
-                  className="bg-gradient-to-br from-gray-800 to-gray-900 p-4 sm:p-6 rounded-2xl border border-gray-700 hover:border-yellow-400 transition-all duration-300 hover:scale-105 text-center"
+                  className="bg-linear-to-br from-gray-800 to-gray-900 p-4 sm:p-6 rounded-2xl border border-gray-700 hover:border-yellow-400 transition-all duration-300 hover:scale-105 text-center"
                 >
                   <trait.icon className="w-10 h-10 sm:w-12 sm:h-12 mx-auto mb-2 sm:mb-3 text-yellow-400" />
                   <p className="text-sm sm:text-base font-semibold text-white">{trait.text}</p>
@@ -370,7 +370,7 @@ const EnhancedPortfolio = () => {
                 key={index}
                 className="group bg-gray-800/50 rounded-2xl border border-gray-700 hover:border-yellow-400 overflow-hidden transition-all duration-300 hover:scale-105"
               >
-                <div className={`h-40 sm:h-48 bg-gradient-to-br ${project.color} flex items-center justify-center p-8`}>
+                <div className={`h-40 sm:h-48 bg-linear-to-br ${project.color} flex items-center justify-center p-8`}>
                   <img 
                     src={project.image} 
                     alt={project.title}
@@ -415,7 +415,7 @@ const EnhancedPortfolio = () => {
       </section>
 
       
-      <section id="contact" className="py-12 sm:py-20 px-4 sm:px-6 bg-gradient-to-b from-transparent to-gray-900/50">
+      <section id="contact" className="py-12 sm:py-20 px-4 sm:px-6 bg-linear-to-b from-transparent to-gray-900/50">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-3 sm:mb-4">
             Get In <span className="text-yellow-400">Touch</span>
