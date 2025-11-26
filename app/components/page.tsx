@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import { Send, Menu, X, Rocket, Lightbulb, Puzzle, Smile, ExternalLink, Mail } from 'lucide-react';
 import { createClient } from "@supabase/supabase-js";
 
-// REAL Supabase client - USE THIS in your actual project
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
   process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
@@ -41,7 +40,7 @@ const EnhancedPortfolio = () => {
     {
       title: 'E-Commerce Platform',
       description: 'Full-stack e-commerce solution with payment integration',
-      tech: ['Next.js', 'Supabase', 'Stripe'],
+      tech: ['Next.js', 'Supabase'],
       link: '#',
       color: 'from-purple-500 to-pink-500',
       image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg'
@@ -123,13 +122,13 @@ const EnhancedPortfolio = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white">
+    <div className="min-h-screen bg-linear-to-br from-gray-900 via-black to-gray-900 text-white">
       
       <nav className="fixed top-0 left-0 right-0 z-50 bg-gray-900/95 backdrop-blur-sm border-b border-yellow-500/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4">
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-yellow-400 to-yellow-600 flex items-center justify-center font-bold text-black text-sm">
+              <div className="w-10 h-10 rounded-full bg-linear-to-br from-yellow-400 to-yellow-600 flex items-center justify-center font-bold text-black text-sm">
                 GT
               </div>
               <span className="text-lg sm:text-xl font-bold text-yellow-400">Godstime</span>
@@ -173,7 +172,7 @@ const EnhancedPortfolio = () => {
         </div>
       </nav>
 
-      {/* Hero Section */}
+      
       <section id="home" className="pt-24 sm:pt-32 pb-12 sm:pb-20 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
@@ -213,7 +212,7 @@ const EnhancedPortfolio = () => {
               </div>
             </div>
 
-            <div className="flex-shrink-0 mt-8 lg:mt-0">
+            <div className="shrink-0 mt-8 lg:mt-0">
               <div className="relative">
                 <div className="w-56 h-56 sm:w-72 sm:h-72 rounded-full bg-gradient-to-br from-yellow-400 to-yellow-600 p-1">
                   <div className="w-full h-full rounded-full bg-gray-900 overflow-hidden">
@@ -237,7 +236,7 @@ const EnhancedPortfolio = () => {
         </div>
       </section>
 
-      {/* Technologies Section */}
+     
       <section className="py-12 sm:py-20 px-4 sm:px-6 bg-gradient-to-b from-transparent to-gray-900/50">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12 sm:mb-16">
@@ -268,7 +267,7 @@ const EnhancedPortfolio = () => {
         </div>
       </section>
 
-      {/* About Section */}
+      
       <section id="about" className="py-12 sm:py-20 px-4 sm:px-6">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-12">
@@ -291,7 +290,7 @@ const EnhancedPortfolio = () => {
         </div>
       </section>
 
-      {/* Skills Section */}
+      
       <section id="skills" className="py-12 sm:py-20 px-4 sm:px-6 bg-gradient-to-b from-gray-900/50 to-transparent">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-3 sm:mb-4">
@@ -336,7 +335,7 @@ const EnhancedPortfolio = () => {
             ))}
           </div>
 
-          {/* Personality Traits */}
+          
           <div className="mt-16 sm:mt-20">
             <h3 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12">
               Personality <span className="text-yellow-400">Traits</span>
@@ -357,7 +356,7 @@ const EnhancedPortfolio = () => {
         </div>
       </section>
 
-      {/* Projects Section */}
+      
       <section id="projects" className="py-12 sm:py-20 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-3 sm:mb-4">
@@ -415,7 +414,7 @@ const EnhancedPortfolio = () => {
         </div>
       </section>
 
-      {/* Contact Section */}
+      
       <section id="contact" className="py-12 sm:py-20 px-4 sm:px-6 bg-gradient-to-b from-transparent to-gray-900/50">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-3 sm:mb-4">
@@ -425,7 +424,7 @@ const EnhancedPortfolio = () => {
             Have a project in mind or just want to say hi? Feel free to reach out!
           </p>
 
-          {/* Social Links */}
+        
           <div className="flex justify-center gap-3 sm:gap-4 mb-8 sm:mb-12">
             {socialLinks.map((social) => (
               <a
@@ -445,7 +444,7 @@ const EnhancedPortfolio = () => {
             ))}
           </div>
 
-          {/* Contact Form */}
+          
           <div className="space-y-4 sm:space-y-6">
             <div>
               <label className="block text-white font-semibold mb-2 text-sm sm:text-base">Your Email</label>
@@ -489,7 +488,7 @@ const EnhancedPortfolio = () => {
         </div>
       </section>
 
-      {/* Footer */}
+      
       <footer className="py-8 sm:py-12 px-4 sm:px-6 bg-gray-900 border-t border-gray-800">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 sm:gap-6">
