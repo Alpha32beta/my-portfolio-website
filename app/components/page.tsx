@@ -21,11 +21,11 @@ const EnhancedPortfolio = () => {
   const skills = [
     { name: 'HTML', level: 95 },
     { name: 'CSS', level: 91 },
-    { name: 'JavaScript', level: 75 },
+    { name: 'JavaScript', level: 90 },
     { name: 'Tailwind', level: 92 },
-    { name: 'React', level: 80 },
+    { name: 'React', level: 91 },
     { name: 'Next.js', level: 95 },
-    { name: 'Supabase', level: 50 },
+    { name: 'Supabase', level: 90 },
     { name: 'GitHub', level: 98 }
   ];
 
@@ -412,7 +412,7 @@ const EnhancedPortfolio = () => {
               className="bg-gray-800/30 p-6 sm:p-8 rounded-2xl border border-gray-700/50"
             >
               <p>
-                I'm a Nigerian-based web developer focused on crafting clean and user-friendly experiences. I'm really passionate about building responsive and interactive websites. I don't just build — I genuinely love what I do, and nothing gives me more joy than seeing my work come to life.
+                I'm a Fullstack web developer focused on crafting clean and user-friendly experiences. I'm really passionate about building responsive and interactive websites. I don't just build I genuinely love what I do, and nothing gives me more joy than seeing my work come to life.
               </p>
             </motion.div>
 
