@@ -33,7 +33,7 @@ const EnhancedPortfolio = () => {
     {
       title: 'Advanced Weather App',
       description: 'A responsive weather application with real-time data and beautiful UI',
-      tech: ['React', 'API Integration', 'Tailwind'],
+      tech: ['React', 'API Integration', 'Tailwind', 'Supabase'],
       link: 'https://advance-weather-app-sigma.vercel.app/',
       color: 'from-blue-500 to-cyan-500',
       image: '/weather.png'
@@ -41,7 +41,7 @@ const EnhancedPortfolio = () => {
     {
       title: 'Currency Converter App',
       description: 'A simple, fast currency converter with real-time rates and easy multi-currency tracking.',
-      tech: ['HTML', 'CSS', 'Javascript'],
+      tech: ['HTML', 'CSS', 'Javascript', 'API Integration'],
       link: 'https://newcurrencyconverter.vercel.app/',
       color: 'from-purple-500 to-pink-500',
       image: '/currency-converter.png'
@@ -705,7 +705,7 @@ const EnhancedPortfolio = () => {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 sm:gap-6">
             <div className="text-center md:text-left">
               <p className="text-gray-400 text-sm sm:text-base">
-                © 2024 <span className="text-yellow-400 font-semibold">Itule Godstime</span>. All rights reserved.
+                © 2025 <span className="text-yellow-400 font-semibold">Itule Godstime</span>. All rights reserved.
               </p>
               <p className="text-gray-500 text-xs sm:text-sm mt-1 sm:mt-2">
                 Built with passion and lots of ☕
