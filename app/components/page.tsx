@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from 'framer-motion';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Send, Menu, X, Rocket, Lightbulb, Puzzle, Smile, ExternalLink, Mail } from 'lucide-react';
 import { createClient } from "@supabase/supabase-js";
 
@@ -17,6 +17,7 @@ const EnhancedPortfolio = () => {
   const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(false);
   const [formStatus, setFormStatus] = useState({ type: '', message: '' });
+  const [formErrors, setFormErrors] = useState({ email: '', message: '' });
 
   const skills = [
     { name: 'HTML', level: 95 },
@@ -77,11 +78,64 @@ const EnhancedPortfolio = () => {
     { image: 'https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png', label: 'Instagram', url: '' }
   ];
 
-  
+  // SCROLL SPY - Auto-update active section
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ['home', 'about', 'skills', 'projects', 'contact'];
+      const scrollPosition = window.scrollY + 100; // Offset for navbar
+
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const offsetTop = element.offsetTop;
+          const offsetBottom = offsetTop + element.offsetHeight;
+
+          if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Run on mount
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Form validation
+  const validateForm = () => {
+    const errors = { email: '', message: '' };
+    let isValid = true;
+
+    if (!email.trim()) {
+      errors.email = 'Please enter your email address';
+      isValid = false;
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      errors.email = 'Please enter a valid email address';
+      isValid = false;
+    }
+
+    if (!message.trim()) {
+      errors.message = 'Please enter your message';
+      isValid = false;
+    }
+
+    setFormErrors(errors);
+    return isValid;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true);
     setFormStatus({ type: '', message: '' });
+    setFormErrors({ email: '', message: '' });
+
+    if (!validateForm()) {
+      return;
+    }
+
+    setLoading(true);
 
     try {
       const { error: supabaseError } = await supabase
@@ -123,7 +177,6 @@ const EnhancedPortfolio = () => {
     }
   };
   
-  
   const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
     visible: { opacity: 1, y: 0 }
@@ -150,10 +203,9 @@ const EnhancedPortfolio = () => {
   };
 
   const fadeInDown = {
-  hidden: { opacity: 0, y: -20 },
-  visible: { opacity: 1, y: 0 }
+    hidden: { opacity: 0, y: -20 },
+    visible: { opacity: 1, y: 0 }
   };
-
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white">
@@ -213,7 +265,9 @@ const EnhancedPortfolio = () => {
                   key={section}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => scrollToSection(section)}
-                  className="block w-full text-left px-4 py-2 capitalize hover:bg-yellow-400/10 rounded-lg transition-colors"
+                  className={`block w-full text-left px-4 py-2 capitalize hover:bg-yellow-400/10 rounded-lg transition-colors ${
+                    activeSection === section ? 'bg-yellow-400/10 text-yellow-400' : ''
+                  }`}
                 >
                   {section}
                 </motion.button>
@@ -629,14 +683,23 @@ const EnhancedPortfolio = () => {
           </motion.div>
 
         
-          <div className="flex justify-center gap-3 sm:gap-4 mb-8 sm:mb-12">
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="flex justify-center gap-3 sm:gap-4 mb-8 sm:mb-12"
+          >
             {socialLinks.map((social) => (
-              <a
+              <motion.a
                 key={social.label}
                 href={social.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gray-800 border border-gray-700 hover:border-yellow-400 flex items-center justify-center transition-all duration-300 hover:scale-110 p-2"
+                variants={zoomIn}
+                whileHover={{ scale: 1.15, y: -5 }}
+                transition={{ duration: 0.3 }}
+                className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gray-800 border border-gray-700 hover:border-yellow-400 flex items-center justify-center transition-all duration-300 p-2"
                 title={social.label}
               >
                 <img 
@@ -644,64 +707,108 @@ const EnhancedPortfolio = () => {
                   alt={social.label}
                   className="w-full h-full object-contain"
                 />
-              </a>
+              </motion.a>
             ))}
-          </div>
+          </motion.div>
 
           
-          <div className="space-y-4 sm:space-y-6">
-            <div>
+          <motion.form 
+            onSubmit={handleSubmit}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="space-y-4 sm:space-y-6"
+          >
+            <motion.div variants={fadeInUp}>
               <label className="block text-white font-semibold mb-2 text-sm sm:text-base">Your Email</label>
               <input
                 type="email"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                  if (formErrors.email) setFormErrors({ ...formErrors, email: '' });
+                }}
                 placeholder="example@email.com"
-                className="w-full px-4 sm:px-6 py-3 sm:py-4 rounded-xl bg-gray-800 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-yellow-400 transition-colors text-sm sm:text-base"
+                className={`w-full px-4 sm:px-6 py-3 sm:py-4 rounded-xl bg-gray-800 border ${
+                  formErrors.email ? 'border-red-500' : 'border-gray-700'
+                } text-white placeholder-gray-500 focus:outline-none focus:border-yellow-400 transition-colors text-sm sm:text-base`}
               />
-            </div>
+              {formErrors.email && (
+                <motion.p 
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="mt-2 text-red-400 text-sm"
+                >
+                  {formErrors.email}
+                </motion.p>
+              )}
+            </motion.div>
 
-            <div>
+            <motion.div variants={fadeInUp}>
               <label className="block text-white font-semibold mb-2 text-sm sm:text-base">Your Message</label>
               <textarea
                 value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                required
+                onChange={(e) => {
+                  setMessage(e.target.value);
+                  if (formErrors.message) setFormErrors({ ...formErrors, message: '' });
+                }}
                 rows={5}
                 placeholder="Tell me about your project or just say hello..."
-                className="w-full px-4 sm:px-6 py-3 sm:py-4 rounded-xl bg-gray-800 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-yellow-400 transition-colors resize-none text-sm sm:text-base"
+                className={`w-full px-4 sm:px-6 py-3 sm:py-4 rounded-xl bg-gray-800 border ${
+                  formErrors.message ? 'border-red-500' : 'border-gray-700'
+                } text-white placeholder-gray-500 focus:outline-none focus:border-yellow-400 transition-colors resize-none text-sm sm:text-base`}
               />
-            </div>
+              {formErrors.message && (
+                <motion.p 
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="mt-2 text-red-400 text-sm"
+                >
+                  {formErrors.message}
+                </motion.p>
+              )}
+            </motion.div>
 
             {formStatus.message && (
-              <div className={`p-3 sm:p-4 rounded-xl text-sm sm:text-base ${formStatus.type === 'success' ? 'bg-green-500/20 border border-green-500 text-green-300' : 'bg-red-500/20 border border-red-500 text-red-300'}`}>
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className={`p-3 sm:p-4 rounded-xl text-sm sm:text-base ${
+                  formStatus.type === 'success' 
+                    ? 'bg-green-500/20 border border-green-500 text-green-300' 
+                    : 'bg-red-500/20 border border-red-500 text-red-300'
+                }`}
+              >
                 {formStatus.message}
-              </div>
+              </motion.div>
             )}
 
-            <button
-              onClick={handleSubmit}
+            <motion.button
+              type="submit"
+              variants={fadeInUp}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
               disabled={loading}
-              className="w-full px-6 sm:px-8 py-3 sm:py-4 bg-yellow-400 text-black font-bold text-sm sm:text-base rounded-full hover:bg-yellow-300 transition-all duration-300 hover:scale-105 active:scale-95 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full px-6 sm:px-8 py-3 sm:py-4 bg-yellow-400 text-black font-bold text-sm sm:text-base rounded-full hover:bg-yellow-300 transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {loading ? 'Sending...' : 'Send Message'}
               {!loading && <Send className="w-4 h-4 sm:w-5 sm:h-5" />}
-            </button>
-          </div>
+            </motion.button>
+          </motion.form>
         </div>
       </section>
 
       
       <footer className="py-8 sm:py-12 px-4 sm:px-6 bg-gray-900 border-t border-gray-800">
-         <motion.footer 
-             initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeInUp}
-            transition={{ duration: 0.6 }}
-      >
-        <div className="max-w-6xl mx-auto">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+          transition={{ duration: 0.6 }}
+          className="max-w-6xl mx-auto"
+        >
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 sm:gap-6">
             <div className="text-center md:text-left">
               <p className="text-gray-400 text-sm sm:text-base">
@@ -730,8 +837,7 @@ const EnhancedPortfolio = () => {
               ))}
             </div>
           </div>
-        </div>
-        </motion.footer>
+        </motion.div>
       </footer>
     </div>
   );
