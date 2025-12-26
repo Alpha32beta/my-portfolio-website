@@ -32,6 +32,14 @@ const EnhancedPortfolio = () => {
 
   const projects = [
     {
+      title: 'Vibe',
+      description: 'A Spotify-inspired music streaming application that allows users to discover, play, and organize music. Built with Next.js and Supabase, featuring user authentication, playlist management, and real-time audio playback. Demonstrates proficiency in full-stack development, API integration, and modern frontend frameworks.',
+      tech: ['Next.js', 'Supabase', 'Tailwind', 'Vercel'],
+      link: 'https://vibe-station-delta.vercel.app/',
+      color: 'from-green-500 to-emerald-500',
+      image: '/vibe-station.png'
+    },
+    {
       title: 'Advanced Weather App',
       description: 'A responsive weather application with real-time data and beautiful UI',
       tech: ['React', 'API Integration', 'Tailwind', 'Supabase'],
