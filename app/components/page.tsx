@@ -820,7 +820,7 @@ const EnhancedPortfolio = () => {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 sm:gap-6">
             <div className="text-center md:text-left">
               <p className="text-gray-400 text-sm sm:text-base">
-                © 2025 <span className="text-yellow-400 font-semibold">Itule Godstime</span>. All rights reserved.
+                © 2026 <span className="text-yellow-400 font-semibold">Itule Godstime</span>. All rights reserved.
               </p>
               <p className="text-gray-500 text-xs sm:text-sm mt-1 sm:mt-2">
                 Built with passion and lots of ☕
