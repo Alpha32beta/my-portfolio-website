@@ -100,9 +100,7 @@ export default function Contact() {
             className="space-y-8"
           >
             <p className="text-gray-400 text-lg leading-relaxed">
-              I'm actively looking for full-time remote frontend roles. If you're
-              building something and need a developer who ships clean, well-crafted
-              interfaces — let's talk.
+              I'm looking for a full-time remote frontend role. If you're building something and need a developer who takes ownership from first commit to deployment, let's talk.
             </p>
 
             <div className="flex items-center gap-3 text-gray-400">

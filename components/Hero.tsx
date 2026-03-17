@@ -122,18 +122,18 @@ export default function Hero({ onNavigate }: HeroProps) {
             </motion.div>
 
             {/* Alchemist tagline */}
-            <motion.p
-              variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
-              transition={{ duration: 0.6 }}
-              className="text-gray-400 text-base sm:text-lg max-w-xl leading-relaxed"
-            >
-              AKA{" "}
-              <span className="text-amber-400 font-bold">The Alchemist</span>
-              {" "}— I build fast, accessible, production-ready web experiences
-              with React and Next.js. Currently crafting{" "}
-              <span className="text-white font-semibold">Raeki</span>, a
-              multi-tenant food delivery platform in React Native.
-            </motion.p>
+           <motion.p
+            variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+            transition={{ duration: 0.6 }}
+            className="text-gray-400 text-base sm:text-lg max-w-xl leading-relaxed"
+          >
+            AKA{" "}
+            <span className="text-amber-400 font-bold">The Alchemist</span>
+            {". "}I take ideas and turn them into things you can actually open in a browser.
+            React, Next.js, TypeScript. Currently building{" "}
+            <span className="text-white font-semibold">Raeki</span>,
+            a food delivery app in React Native.
+          </motion.p>
 
             {/* CTA buttons */}
             <motion.div
@@ -168,7 +168,7 @@ export default function Hero({ onNavigate }: HeroProps) {
               className="flex gap-8 justify-center lg:justify-start pt-4"
             >
               {[
-                { value: "1+", label: "Years Experience" },
+                { value: "3+", label: "Years Experience" },
                 { value: "5+", label: "Projects Shipped" },
                 { value: "100%", label: "Remote Ready" },
               ].map((stat) => (

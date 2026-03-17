@@ -65,34 +65,28 @@ export default function About() {
             transition={{ duration: 0.7 }}
             className="space-y-6"
           >
-            <p className="text-gray-300 text-lg leading-relaxed">
-              I'm a self-taught frontend developer based in{" "}
-              <span className="text-white font-semibold">Benin City, Nigeria</span>,
-              building production-ready web applications with React, Next.js,
-              and TypeScript. I got into development through structured learning
-              — freeCodeCamp, Net Ninja, and Traversy Media — and sharpened my
-              skills in a real internship at{" "}
-              <span className="text-amber-400 font-semibold">
-                Carburant Technology Limited
-              </span>
-              , where I shipped components, integrated APIs, and worked with a
-              live codebase.
-            </p>
+           <p className="text-gray-300 text-lg leading-relaxed">
+                I taught myself frontend development through freeCodeCamp, Net Ninja, and Traversy Media. No bootcamp, no CS degree. I then got an internship at{" "}
+                <span className="text-amber-400 font-semibold">
+                  Carburant Technology Limited
+                </span>{" "}
+                in{" "}
+                <span className="text-white font-semibold">Benin City, Nigeria</span>{" "}
+                and did the real thing: shipping components, integrating APIs, and writing code that went into a live product.
+              </p>
 
-            <p className="text-gray-400 text-base leading-relaxed">
-              Right now I'm building{" "}
-              <span className="text-amber-400 font-semibold">Raeki</span> — a
-              multi-tenant food delivery SaaS in React Native and Expo. It's
-              the kind of project that pushes every skill: product thinking,
-              mobile architecture, backend integration, and UI craft all in one
-              place.
-            </p>
+              <p className="text-gray-400 text-base leading-relaxed">
+                Right now I'm building{" "}
+                <span className="text-amber-400 font-semibold">Raeki</span>, a
+                multi-tenant food delivery SaaS in React Native and Expo. It's
+                the kind of project that pushes everything at once: product thinking,
+                mobile architecture, backend integration, and UI craft.
+              </p>
 
-            <p className="text-gray-400 text-base leading-relaxed">
-              Long term I want my work to matter beyond the screen — using what
-              I build to improve the lives of people in my community and beyond.
-              That's the real goal behind every line of code.
-            </p>
+              <p className="text-gray-400 text-base leading-relaxed">
+                Long term I want my work to matter beyond the screen. I want to use what
+                I build to improve the lives of people in my community. That's the real reason behind every line of code.
+              </p>
 
             {/* Training timeline */}
             <div className="pt-4">
